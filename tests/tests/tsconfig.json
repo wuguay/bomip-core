@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "diagnostics": false
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "files": [
+    "client/unit/core.spec.ts",
+    "client/unit/rx.spec.ts",
+    "client/unit/sam.spec.ts"
+  ]
+}

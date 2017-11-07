@@ -18,7 +18,7 @@
   "homepage": "",
   "description": "Bomip core foundational building blocks",
   "scripts": {
-    "changelog": "$(npm bin)/conventional-changelog -p meteor-rxjs -i CHANGELOG.md -s -r 0",
+    "changelog": "$(npm bin)/conventional-changelog -p bomip-core -i CHANGELOG.md -s -r 0",
     "docs": "./generate-docs.sh",
     "prebuild": "npm run lint",
     "build": "npm run build-only && npm run bundle && npm run docs",
@@ -29,10 +29,8 @@
     "test:unit": "cd tests && meteor test --port 3005 --once --driver-package=dispatch:mocha-phantomjs",
     "test:app": "cd tests && meteor test --port 3005 --full-app --once --driver-package=dispatch:mocha-phantomjs",
     "test": "npm run test:unit && npm run test:app",
-    "lint": "tslint src/**/*.ts",
-    "rollup:browser": "rollup -i ./dist/index.js -o ./dist/bundles/index.umd.js -n bp.core -c rollup.config.js",
-    "rollup:main": "rollup -i ./dist/main.js -o ./dist/bundles/main.umd.js -n bp.core -c rollup.config.js",
-    "bundle": "npm run rollup:browser && npm run rollup:main"
+    "lint": "tslint --type-check -p ./tsconfig.json modules/**/*.ts",
+    "bundle": "rollup -i ./dist/index.js -o ./dist/bundles/index.umd.js -n bp.core -c rollup.config.js"
   },
   "repository": {
     "type": "git",
@@ -46,7 +44,7 @@
     "@types/chai": "4.0.4",
     "@types/meteor": "1.4.6",
     "@types/mocha": "2.2.43",
-    "@types/underscore": "1.8.3",
+    "@types/lodash": "^4.14.66",
     "conventional-changelog": "1.1.0",
     "conventional-changelog-cli": "1.2.0",
     "jsdoc-to-markdown": "3.0.0",

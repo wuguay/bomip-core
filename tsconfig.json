@@ -10,19 +10,24 @@
     "emitDecoratorMetadata": true,
     "sourceMap": true,
     "declaration": true,
+    "stripInternal": true,
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./modules",
     "types": [
       "zone.js",
       "@types/chai",
       "@types/meteor",
-      "@types/underscore"
+      "@types/lodash"
     ]
   },
   "files": [
-    "src/index.ts"
+    "modules/index.ts"
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "compileOnSave": false,
+  "atom": {
+    "rewriteTsconfig": false
+  }
 }
